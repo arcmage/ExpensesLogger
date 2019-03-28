@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.168
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpensesLogger", "ExpensesLogger\ExpensesLogger.csproj", "{0281EE2D-26E3-43D5-BB03-FECF3D80555B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpensesLogger.Tests", "ExpensesLogger.Tests\ExpensesLogger.Tests.csproj", "{FDF6CEA7-9F71-4424-B986-6A8B614766DE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0281EE2D-26E3-43D5-BB03-FECF3D80555B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0281EE2D-26E3-43D5-BB03-FECF3D80555B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0281EE2D-26E3-43D5-BB03-FECF3D80555B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0281EE2D-26E3-43D5-BB03-FECF3D80555B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FDF6CEA7-9F71-4424-B986-6A8B614766DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDF6CEA7-9F71-4424-B986-6A8B614766DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDF6CEA7-9F71-4424-B986-6A8B614766DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDF6CEA7-9F71-4424-B986-6A8B614766DE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {45F5A32F-EBB7-4C4E-8EFE-A3ADA011DE82}
+	EndGlobalSection
+EndGlobal
