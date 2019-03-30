@@ -26,5 +26,10 @@ namespace ExpensesLogger.Controllers
 
             return View();
         }
+
+        public ActionResult EnterExpenses()
+        {
+            return View();
+        }
     }
 }

@@ -1,0 +1,30 @@
+﻿@model ExpensesLogger.Models.Expense
+@{
+    ViewBag.Title = "EnterExpenses";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>EnterExpenses</h2>
+<table class="table tab-content table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Food</th>
+        <th>Clothing</th>
+        <th>Electronics</th>
+        <th>Gasoline</th>
+        <th>Travel</th>
+        <th>Uncategorized</th>
+        <th>Total</th>
+    </tr>
+    <tr>
+        <td>counter</td>
+        <td><input type="number"/></td>
+        <td><input type="number"/></td>
+        <td><input type="number"/></td>
+        <td><input type="number"/></td>
+        <td><input type="number"/></td>
+        <td><input type="number"/></td>
+        <td>0000</td>
+    </tr>
+</table>
+<button>Add New Row</button>
