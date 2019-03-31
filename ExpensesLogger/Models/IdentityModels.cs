@@ -21,10 +21,9 @@ namespace ExpensesLogger.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public DbSet<Expense> Expenses { get; set; }
-        public DbSet<ExpenseType> Types { get; set; }
 
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("ExLogDbConnection", throwIfV1Schema: false)
         {
         }
 

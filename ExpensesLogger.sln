@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpensesLogger", "ExpensesL
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpensesLogger.Tests", "ExpensesLogger.Tests\ExpensesLogger.Tests.csproj", "{FDF6CEA7-9F71-4424-B986-6A8B614766DE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vidly", "..\Vidly\Vidly\Vidly.csproj", "{22392F95-CE47-4011-8E43-91A4CE9B2F03}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,6 +28,12 @@ Global
 		{FDF6CEA7-9F71-4424-B986-6A8B614766DE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{FDF6CEA7-9F71-4424-B986-6A8B614766DE}.Testing|Any CPU.ActiveCfg = Release|Any CPU
 		{FDF6CEA7-9F71-4424-B986-6A8B614766DE}.Testing|Any CPU.Build.0 = Release|Any CPU
+		{22392F95-CE47-4011-8E43-91A4CE9B2F03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22392F95-CE47-4011-8E43-91A4CE9B2F03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22392F95-CE47-4011-8E43-91A4CE9B2F03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22392F95-CE47-4011-8E43-91A4CE9B2F03}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22392F95-CE47-4011-8E43-91A4CE9B2F03}.Testing|Any CPU.ActiveCfg = Testing|Any CPU
+		{22392F95-CE47-4011-8E43-91A4CE9B2F03}.Testing|Any CPU.Build.0 = Testing|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

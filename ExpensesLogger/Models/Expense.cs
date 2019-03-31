@@ -8,9 +8,12 @@ namespace ExpensesLogger.Models
     public class Expense
     {
         public int Id { get; set; }
-        public DateTime DateTime { get; set; }
-        public ExpenseType Type { get; set; }
-        public int ExpenseTypeId { get; set; }  
-        public double Total { get; set; }
+        public DateTime Date { get; set; }
+        public double Food { get; set; }
+        public double Clothing { get; set; }
+        public double Electronics { get; set; }
+        public double Gasoline { get; set; }
+        public double Travel { get; set; }
+        public double Other { get; set; }
     }
 }

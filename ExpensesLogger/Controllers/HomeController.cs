@@ -1,13 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using ExpensesLogger.Models;
 
 namespace ExpensesLogger.Controllers
 {
     public class HomeController : Controller
     {
+        private ApplicationDbContext _context;
+
+        public HomeController()
+        {
+            _context = new ApplicationDbContext();
+        }
         public ActionResult Index()
         {
             return View();
@@ -29,7 +37,9 @@ namespace ExpensesLogger.Controllers
 
         public ActionResult EnterExpenses()
         {
-            return View();
+            var expenses = _context.Expenses.SingleOrDefault(e => e.Id == 1);
+
+            return View(expenses);
         }
     }
 }
