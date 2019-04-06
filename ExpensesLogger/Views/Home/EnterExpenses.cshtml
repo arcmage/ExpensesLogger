@@ -5,36 +5,39 @@
 }
 
 <h2>EnterExpenses</h2>
+@using (Html.BeginForm("Update", "Home"))
+{
 <table class="table tab-content table-bordered">
+
     <tr>
-        <th>#</th>
-        <th>Food</th>
-        <th>Clothing</th>
-        <th>Electronics</th>
-        <th>Gasoline</th>
-        <th>Travel</th>
-        <th>Uncategorized</th>
-        <th>Total</th>
+        <td>#</td>
+        <td>@Html.LabelFor(m => m.Food)</td>
+        <td>@Html.LabelFor(m => m.Clothing)</td>
+        <td>@Html.LabelFor(m => m.Electronics)</td>
+        <td>@Html.LabelFor(m => m.Gasoline)</td>
+        <td>@Html.LabelFor(m => m.Travel)</td>
+        <td>@Html.LabelFor(m => m.Other)</td>
     </tr>
     <tr>
-        <td>counter</td>
-        <td>@Html.LabelForModel(""+ Model.Food)</td>
-        <td><input type="number" /></td>
-        <td><input type="number" /></td>
-        <td><input type="number" /></td>
-        <td><input type="number" /></td>
-        <td><input type="number" /></td>
-        <td>0000</td>
+        <td>Before</td>
+        <td>@Html.TextBoxFor(m => m.Food, new {disabled="disabled"})</td>
+        <td>@Html.TextBoxFor(m => m.Clothing, new { disabled = "disabled" })</td>
+        <td>@Html.TextBoxFor(m => m.Electronics, new { disabled = "disabled" })</td>
+        <td>@Html.TextBoxFor(m => m.Gasoline, new { disabled = "disabled" })</td>
+        <td>@Html.TextBoxFor(m => m.Travel, new { disabled = "disabled" })</td>
+        <td>@Html.TextBoxFor(m => m.Other, new { disabled = "disabled" })</td>
     </tr>
     <tr>
-        <td>counter</td>
-        <td><input type="number" /></td>
-        <td><input type="number" /></td>
-        <td><input type="number" /></td>
-        <td><input type="number" /></td>
-        <td><input type="number" /></td>
-        <td><input type="number" /></td>
-        <td>0000</td>
+        <td>New</td>
+        <td> <input id="Food" name="Food" type="text"/> </td>
+        <td> <input id="Clothing" name="clothing" type="text"/> </td>
+        <td> <input id="Electronics" name="Electronics" type="text"/> </td>
+        <td> <input id="Gasoline" name="Gasoline" type="text"/> </td>
+        <td> <input id="Travel" name="Travel" type="text"/> </td>
+        <td> <input id="Other" name="Food" type="Other"/> </td>
     </tr>
 </table>
-<button>Update</button>
+    @Html.HiddenFor(e => e.Id)
+    <button type="submit" class="btn btn-primary">Update</button>
+}
+
