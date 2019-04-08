@@ -17,12 +17,12 @@ namespace ExpensesLogger.Controllers
         {
             _context = new ApplicationDbContext();
         }
-
+        
         protected override void Dispose(bool disposing)
         {
             _context.Dispose();
         }
-
+        
         public ActionResult Index()
         {
             return View();
@@ -42,6 +42,13 @@ namespace ExpensesLogger.Controllers
             return View();
         }
 
+        public ActionResult Main()
+        {
+            var userID = _context.Users.Single(u => u.Id == "8c0bd739-b5a5-4460-a7a7-26f5ba94ccac");
+
+            return View(userID);
+        }
+
         public ActionResult EnterExpenses(int id)
         {
             var expensesInDb = _context.Expenses.SingleOrDefault(c => c.Id == id);
@@ -51,7 +58,7 @@ namespace ExpensesLogger.Controllers
 
         public ActionResult Update(Expense expense)
         {
-            var expensesInDb = _context.Expenses.Single(e => e.Id == 1);
+            var expensesInDb = _context.Expenses.Single(e => e.Id == expense.Id && e.Date == expense.Date);
 
             expensesInDb.Food += expense.Food;
             expensesInDb.Clothing += expense.Clothing;
@@ -61,8 +68,7 @@ namespace ExpensesLogger.Controllers
             expensesInDb.Other += expense.Other;
 
             _context.SaveChanges();
-
-            int val = expensesInDb.Id;
+            
             return RedirectToAction("EnterExpenses", "Home", new {id = expensesInDb.Id});
         }
 

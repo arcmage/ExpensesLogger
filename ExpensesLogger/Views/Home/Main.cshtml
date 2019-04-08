@@ -1,0 +1,11 @@
+﻿@model ExpensesLogger.Models.ApplicationUser
+@{
+    ViewBag.Title = "Main";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Main Page</h2>
+<label>Enter the date you wish to update</label>
+<input type="text"/>
+@Html.ActionLink("Submit", "EnterExpenses", new {id = Model.Id.ToString()})
+
