@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using ExpensesLogger.Models;
+using Microsoft.Ajax.Utilities;
 using Microsoft.AspNet.Identity;
 
 namespace ExpensesLogger.Controllers
@@ -47,22 +48,33 @@ namespace ExpensesLogger.Controllers
 
         public ActionResult Main()
         {
-            userId = User.Identity.GetUserId();
-            var userExpenses = _context.Expenses.Single(u => u.UserId.Equals(userId));
-
-            return View(userExpenses);
+            return View();
         }
 
-        public ActionResult EnterExpenses(int id, DateTime searchDate)
+        public ActionResult EnterExpenses(DateTime searchDate)
         {
-            var expensesInDb = _context.Expenses.SingleOrDefault(c => c.Id == id && c.Date == searchDate);
-            
-            return View(expensesInDb);
-        }
+            userId = User.Identity.GetUserId();
+            var userExpenses = _context.Expenses.SingleOrDefault(u => u.UserId.Equals(userId) && u.Date == searchDate);
 
+            if(userExpenses != null)
+                return View(userExpenses);
+
+            else
+            {
+                Expense newExpense = new Expense();
+                newExpense.Date = searchDate;
+                newExpense.UserId = userId;
+                var newRecord = _context.Expenses.Add(newExpense);
+
+                _context.SaveChanges();
+
+                return View(newExpense);
+            }
+        }
+ 
         public ActionResult Update(Expense expense)
         {
-            var expensesInDb = _context.Expenses.Single(e => e.Id == expense.Id && e.Date == expense.Date);
+            var expensesInDb = _context.Expenses.SingleOrDefault(e => e.Id == expense.Id && e.Date == expense.Date);
 
             expensesInDb.Food += expense.Food;
             expensesInDb.Clothing += expense.Clothing;

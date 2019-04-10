@@ -5,10 +5,10 @@
 }
 
 <h2>Main Page</h2>
-@using (Html.BeginForm("EnterExpenses", "Home", new {id = Model.Id}))
+@using (Html.BeginForm("EnterExpenses", "Home"))
 {
     <label>Enter the date you wish to update</label>
     <input id="date" type="text" name="searchDate"/>
     <button type="submit" class="btn btn-primary" value="Search">Update</button>
-
+    @Html.HiddenFor(e => e.UserId)
 }
