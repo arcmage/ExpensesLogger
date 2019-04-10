@@ -6,12 +6,14 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using ExpensesLogger.Models;
+using Microsoft.AspNet.Identity;
 
 namespace ExpensesLogger.Controllers
 {
     public class HomeController : Controller
     {
         private ApplicationDbContext _context;
+        private string userId;
 
         public HomeController()
         {
@@ -25,6 +27,7 @@ namespace ExpensesLogger.Controllers
         
         public ActionResult Index()
         {
+            
             return View();
         }
 
@@ -44,15 +47,16 @@ namespace ExpensesLogger.Controllers
 
         public ActionResult Main()
         {
-            var userID = _context.Users.Single(u => u.Id == "8c0bd739-b5a5-4460-a7a7-26f5ba94ccac");
+            userId = User.Identity.GetUserId();
+            var userExpenses = _context.Expenses.Single(u => u.UserId.Equals(userId));
 
-            return View(userID);
+            return View(userExpenses);
         }
 
-        public ActionResult EnterExpenses(int id)
+        public ActionResult EnterExpenses(int id, DateTime searchDate)
         {
-            var expensesInDb = _context.Expenses.SingleOrDefault(c => c.Id == id);
-
+            var expensesInDb = _context.Expenses.SingleOrDefault(c => c.Id == id && c.Date == searchDate);
+            
             return View(expensesInDb);
         }
 
@@ -69,7 +73,7 @@ namespace ExpensesLogger.Controllers
 
             _context.SaveChanges();
             
-            return RedirectToAction("EnterExpenses", "Home", new {id = expensesInDb.Id});
+            return RedirectToAction("EnterExpenses", "Home", new {id = expensesInDb.Id, searchDate= expensesInDb.Date});
         }
 
     }

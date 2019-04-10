@@ -34,10 +34,12 @@
         <td> <input id="Electronics" name="Electronics" type="text"/> </td>
         <td> <input id="Gasoline" name="Gasoline" type="text"/> </td>
         <td> <input id="Travel" name="Travel" type="text"/> </td>
-        <td> <input id="Other" name="Food" type="Other"/> </td>
+        <td> <input id="Other" name="Other" type="text"/> </td>
     </tr>
 </table>
     @Html.HiddenFor(e => e.Id)
+    @Html.HiddenFor(e => e.UserId)
+    @Html.HiddenFor(e => e.Date)
     <button type="submit" class="btn btn-primary">Update</button>
 }
 

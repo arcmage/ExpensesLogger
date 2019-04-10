@@ -15,5 +15,6 @@ namespace ExpensesLogger.Models
         public double Gasoline { get; set; }
         public double Travel { get; set; }
         public double Other { get; set; }
+        public string UserId { get; set; }
     }
 }

@@ -187,6 +187,14 @@
     <Compile Include="Migrations\201904070719137_AddUser.Designer.cs">
       <DependentUpon>201904070719137_AddUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904080937002_AlterExpenseId.cs" />
+    <Compile Include="Migrations\201904080937002_AlterExpenseId.Designer.cs">
+      <DependentUpon>201904080937002_AlterExpenseId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904081120534_ChangesInUserId.cs" />
+    <Compile Include="Migrations\201904081120534_ChangesInUserId.Designer.cs">
+      <DependentUpon>201904081120534_ChangesInUserId.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Expense.cs" />
@@ -277,6 +285,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201904070719137_AddUser.resx">
       <DependentUpon>201904070719137_AddUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904080937002_AlterExpenseId.resx">
+      <DependentUpon>201904080937002_AlterExpenseId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904081120534_ChangesInUserId.resx">
+      <DependentUpon>201904081120534_ChangesInUserId.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
