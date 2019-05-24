@@ -1,0 +1,16 @@
+﻿@model ExpensesLogger.Models.Expense
+@{
+    ViewBag.Title = "StatHandler";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Choose a time period</h2>
+@using (Html.BeginForm("ShowStat", "Home"))
+{
+    <label>From</label>
+    <input id="date" type="text" name="from" />
+    <label>To</label>
+    <input id="date" type="text" name="to" />
+    <button type="submit" class="btn btn-primary" value="Search">Update</button>
+    @Html.HiddenFor(e => e.UserId)
+}
