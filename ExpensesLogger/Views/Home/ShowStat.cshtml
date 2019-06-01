@@ -4,11 +4,14 @@
     ViewBag.Title = "ShowStat";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+    <div>
+        <h2>ShowStat</h2>
+        <p>the average for for food is: @Model.Food</p>
+        <p>the average for for clothing is: @Model.Clothing</p>
+        <p>the average for for electronics is: @Model.Electronics</p>
+        <p>the average for for gasoline is: @Model.Gasoline</p>
+        <p>the average for for travel is: @Model.Travel</p>
+        <p>the average for for other is: @Model.Other</p>
 
-<h2>ShowStat</h2>
-<p>the average for for food is: @Model.Food</p>
-<p>the average for for clothing is: @Model.Clothing</p>
-<p>the average for for electronics is: @Model.Electronics</p>
-<p>the average for for gasoline is: @Model.Gasoline</p>
-<p>the average for for travel is: @Model.Travel</p>
-<p>the average for for other is: @Model.Other</p>
+        <img src="@Url.Action("DrawChart")"/>
+    </div>

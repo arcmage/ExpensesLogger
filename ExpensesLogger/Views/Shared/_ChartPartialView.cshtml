@@ -1,0 +1,12 @@
+﻿@model IEnumerable<double>
+
+@{
+    var myChart = new Chart(width: 600, height: 600)
+        .AddTitle("Statistics")
+        .AddSeries("Default", chartType: "Pie",
+            xValue: new[] { "Food", "Clothing", "Electronics", "Gasoline", "Travel", "Other" }, 
+            xField: "Name",
+            yValues: Model, 
+            yFields: "Sales")
+        .Write("png");
+}

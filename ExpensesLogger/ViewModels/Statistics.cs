@@ -13,5 +13,15 @@ namespace ExpensesLogger.ViewModels
         public double Gasoline { get; set; }
         public double Travel { get; set; }
         public double Other { get; set; }
+
+        public Statistics()
+        {
+            Food = 0;
+            Clothing = 0;
+            Electronics = 0;
+            Gasoline = 0;
+            Travel = 0;
+            Other = 0;
+        }
     }
 }

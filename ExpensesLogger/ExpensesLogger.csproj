@@ -263,6 +263,7 @@
     <Content Include="Views\Shared\_NavBar.cshtml" />
     <Content Include="Views\Home\StatHandler.cshtml" />
     <Content Include="Views\Home\ShowStat.cshtml" />
+    <Content Include="Views\Shared\_ChartPartialView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

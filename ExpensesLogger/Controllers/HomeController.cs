@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
+using System.Web.Helpers;
 using System.Web.Mvc;
 using System.Web.Routing;
 using ExpensesLogger.Models;
@@ -16,6 +17,7 @@ namespace ExpensesLogger.Controllers
     {
         private ApplicationDbContext _context;
         private string userId;
+        static Statistics graphStatistics = new Statistics();
 
         public HomeController()
         {
@@ -119,7 +121,21 @@ namespace ExpensesLogger.Controllers
             statistics.Travel = travelSum / period.Count;
             statistics.Other = otherSum / period.Count;
 
+            graphStatistics = statistics;
+
             return View(statistics);
+        }
+
+        // Draw Statistics Graph 
+        public ActionResult DrawChart()
+        {
+            var model = new[]
+            {
+                graphStatistics.Food, graphStatistics.Clothing, graphStatistics.Electronics,
+                graphStatistics.Gasoline, graphStatistics.Travel, graphStatistics.Other
+            };
+
+            return PartialView("_ChartPartialView", model);
         }
     }
 }
