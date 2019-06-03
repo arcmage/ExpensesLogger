@@ -17,7 +17,16 @@ namespace ExpensesLogger.Controllers
     {
         private ApplicationDbContext _context;
         private string userId;
-        static Statistics graphStatistics = new Statistics();
+
+        private static Statistics graphStatistics = new Statistics
+        {
+            Food = 0.0,
+            Clothing = 0.0,
+            Electronics = 0.0,
+            Gasoline = 0.0,
+            Travel = 0.0,
+            Other = 0.0
+        };
 
         public HomeController()
         {
@@ -31,7 +40,6 @@ namespace ExpensesLogger.Controllers
         
         public ActionResult Index()
         {
-            
             return View();
         }
 
@@ -44,7 +52,9 @@ namespace ExpensesLogger.Controllers
         [Authorize]
         public ActionResult EnterExpenses(DateTime searchDate)
         {
-            // Get the user ID and Search date
+            // TODO: Make sure no exception occur if the user go to action before choosing date
+
+            // Get the user ID and query the search date from DB
             userId = User.Identity.GetUserId();
             var userExpenses = _context.Expenses.SingleOrDefault(u => u.UserId.Equals(userId) && u.Date == searchDate);
 
@@ -80,7 +90,7 @@ namespace ExpensesLogger.Controllers
             expensesInDb.Other += expense.Other;
 
             _context.SaveChanges();
-            
+            // TODO: Fix the id & search date showing in the EnterExpenses URL after updating
             return RedirectToAction("EnterExpenses", "Home", new {id = expensesInDb.Id, searchDate= expensesInDb.Date});
         }
 
@@ -113,7 +123,7 @@ namespace ExpensesLogger.Controllers
                 travelSum += expense.Travel;
                 otherSum += expense.Other;
             }
-
+            // TODO: Deal with the case when Count is 0
             statistics.Food = foodSum / period.Count;
             statistics.Clothing = clothingSum / period.Count;
             statistics.Electronics = electronicsSum / period.Count;

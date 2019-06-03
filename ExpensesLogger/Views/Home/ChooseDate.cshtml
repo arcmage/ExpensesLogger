@@ -8,7 +8,7 @@
 @using (Html.BeginForm("EnterExpenses", "Home"))
 {
     <label>Enter the date you wish to update</label>
-    <input id="date" type="text" name="searchDate"/>
-    <button type="submit" class="btn btn-primary" value="Search">Update</button>
+    <input id="date" type="text" name="searchDate" required="true"/>
+    <button type="submit" class="btn btn-primary" value="Search">Submit</button>
     @Html.HiddenFor(e => e.UserId)
 }
